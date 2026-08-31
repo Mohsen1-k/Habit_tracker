@@ -30,16 +30,18 @@ h1{margin:4px 0 16px;text-align:center;color:var(--teal);font-size:28px;font-wei
 .fields{display:grid;grid-template-columns:1fr;gap:12px}
 @media(min-width:700px){.fields{grid-template-columns:1fr 1.25fr 1fr}}
 .field label{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+.field-label-row{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:6px}.field-label-row label{margin:0}.field-label-row .date-chip{padding:6px 10px}
 input[type=text],select{width:100%;padding:12px 13px;border:1px solid #dfe6e4;border-radius:14px;font-size:16px;background:#fff;color:var(--text);min-height:48px;outline:none;transition:border-color .15s ease,box-shadow .15s ease} input[type=text]:focus,select:focus{border-color:#8ed7d9;box-shadow:0 0 0 4px rgba(56,185,189,.10)}
 .date-picker{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
 .date-info{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px}
 .date-chip{display:inline-flex;align-items:center;gap:6px;padding:8px 11px;border-radius:999px;background:#f1f9f8;color:#2a8589;font-size:12px;font-weight:700;border:1px solid #e1f1ef}
-.active-title{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.today-panel{padding:0;overflow:hidden}.today-overview{display:block}.today-overview-item{background:#f3faf9;padding:13px 14px;text-align:center;font-size:13px;font-weight:800;color:#397f81}.today-overview-item+.today-overview-item{border-top:1px solid #dcefed}.today-overview-item strong{color:#247f83}.active-title{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}.selected-chilla-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.complete-badge{background:#e1f6e9;color:#16854a;border:1px solid #c8edd7;padding:7px 10px;border-radius:999px;font-size:12px;font-weight:900}.pending-badge{background:#f2f5f4;color:#68716f;border:1px solid #e2e8e6;padding:7px 10px;border-radius:999px;font-size:12px;font-weight:800}
 .badge{background:#eaf8f8;color:#238d91;padding:7px 11px;border-radius:999px;font-weight:800;font-size:12px;border:1px solid #d8f0f0}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}
 .stat{border:1px solid var(--line);border-radius:16px;padding:12px 6px;text-align:center;font-size:12px;background:#fff;box-shadow:0 4px 14px rgba(64,83,80,.035)}
 .stat b{display:block;font-size:23px;margin-top:4px}
 .stat.small b{color:var(--green)} .stat.special b{color:var(--yellow)} .stat.urgent b{color:var(--red)}
+.chilla-progress{margin-top:13px;background:#f8faf9;border:1px solid #e7ecea;border-radius:15px;padding:10px 12px}.progress-top{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;font-weight:800;margin-bottom:8px}.progress-track{height:10px;border-radius:999px;background:#e8eeec;overflow:hidden}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#69d0a1,#38b9bd);border-radius:999px;transition:width .25s ease}.score-box{margin-top:13px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#f8faf9;border:1px solid #e7ecea;border-radius:15px;padding:10px 12px}.score-box[hidden],.chilla-progress[hidden]{display:none!important}.score-box label{font-size:13px;font-weight:900}.score-input-wrap{display:flex;align-items:center;gap:6px}.score-input{width:76px;min-height:42px;border:1px solid #dbe4e1;border-radius:12px;padding:8px 10px;font-size:17px;font-weight:900;text-align:center;color:#495351;background:#fff;outline:none}.score-input:focus{border-color:#8ed7d9;box-shadow:0 0 0 4px rgba(56,185,189,.10)}.score-outof{font-size:13px;color:var(--muted);font-weight:800}
 .chillas{display:flex;gap:7px;overflow-x:auto;padding:3px 0 10px}
 .chilla-btn{flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:13px;padding:10px 13px;font-size:13px;color:var(--text);min-height:42px}
 .chilla-btn.active{background:#66716f;color:#fff;border-color:#66716f;box-shadow:0 5px 14px rgba(66,78,76,.17)}
@@ -48,9 +50,9 @@ input[type=text],select{width:100%;padding:12px 13px;border:1px solid #dfe6e4;bo
 @media(min-width:390px){.grid{grid-template-columns:repeat(8,1fr)}}
 @media(min-width:650px){.grid{grid-template-columns:repeat(10,1fr)}}
 .cell{aspect-ratio:1/1;border:2px solid transparent;border-radius:12px;min-width:0;position:relative;font-weight:700;color:#596060;background:var(--neutral);padding:4px 2px;overflow:visible;transition:transform .1s ease,box-shadow .1s ease}
-.cell .num{display:block;font-size:12px;line-height:1.2}
-.cell .mini-date{display:block;font-size:8px;line-height:1.15;margin-top:2px;color:#727a7a;font-weight:400;direction:ltr}
-.cell .mark{position:absolute;left:3px;bottom:3px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:900}
+.cell .num{display:block;font-size:14px;line-height:1.15;font-weight:800}
+.cell .mini-date{display:block;font-size:10px;line-height:1.15;margin-top:3px;color:#6f7877;font-weight:500;direction:ltr}
+.cell .mark{position:absolute;left:3px;bottom:3px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:900;opacity:.60}
 .cell.empty .mark{display:none}
 .cell.small{background:var(--green-bg);border-color:#77d8a2}
 .cell.small .mark{background:var(--green)}
@@ -60,7 +62,7 @@ input[type=text],select{width:100%;padding:12px 13px;border:1px solid #dfe6e4;bo
 .cell.urgent .mark{background:var(--red)}
 .cell.today-cell{outline:none}
 .cell.selected-cell{outline:none;box-shadow:0 0 0 3px rgba(56,185,189,.42)}
-.cell .today-pin{position:absolute;top:4px;left:4px;width:10px;height:10px;border-radius:50%;background:#2f83ff;box-shadow:0 0 0 2px #fff}
+.cell .today-pin{position:absolute;top:4px;left:4px;width:8px;height:8px;border-radius:50%;background:#2f83ff;box-shadow:0 0 0 1.5px #fff;opacity:.50}
 .detail{margin-top:14px;padding:12px 13px;border:1px solid #e2e9e7;border-radius:16px;font-size:13px;line-height:1.8;background:linear-gradient(180deg,#fcfdfd,#f8fbfa)}
 .detail-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .detail-row+.detail-row{border-top:1px solid #e8eceb;margin-top:9px;padding-top:9px}
@@ -100,6 +102,7 @@ input[type=text],select{width:100%;padding:12px 13px;border:1px solid #dfe6e4;bo
 .choice.small{background:var(--green)} .choice.special{background:var(--yellow);color:#5b4700}
 .choice.urgent{background:var(--red)} .choice.clear{background:#edf1ef;color:#5e6867}
 .close-sheet{width:100%;margin-top:9px;border:0;background:#fff;color:#7a8584;padding:11px;font-size:14px}
+@media(max-width:420px){.today-overview{grid-template-columns:1fr}}
 @media(max-width:360px){.grid{grid-template-columns:repeat(5,1fr)}.editor-row{grid-template-columns:1fr}.date-picker{gap:4px}select{padding:10px 6px}.toolbar-grid,.danger-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -114,15 +117,14 @@ input[type=text],select{width:100%;padding:12px 13px;border:1px solid #dfe6e4;bo
       <input id="habitName" type="text" placeholder="مثلاً مطالعه روزانه">
     </div>
     <div class="field">
-      <label>تاریخ شروع</label>
-      <div class="date-picker">
-        <select id="startYear" aria-label="سال"></select>
-        <select id="startMonth" aria-label="ماه"></select>
-        <select id="startDay" aria-label="روز"></select>
+      <div class="field-label-row">
+        <label>تاریخ شروع</label>
+        <span class="date-chip" id="datePreview">—</span>
       </div>
-      <div class="date-info">
-        <span class="date-chip" id="todayChip">تاریخ امروز: —</span>
-        <span class="date-chip" id="datePreview">شروع: —</span>
+      <div class="date-picker">
+        <select id="startDay" aria-label="روز"></select>
+        <select id="startMonth" aria-label="ماه"></select>
+        <select id="startYear" aria-label="سال"></select>
       </div>
     </div>
     <div class="field">
@@ -131,15 +133,31 @@ input[type=text],select{width:100%;padding:12px 13px;border:1px solid #dfe6e4;bo
     </div>
   </div>
 </section>
+<section class="panel today-panel">
+  <div class="today-overview">
+    <div class="today-overview-item" id="todayOverviewDate">تاریخ امروز: —</div>
+    <div class="today-overview-item" id="todayOverviewCycle">چله و روز امروز: —</div>
+  </div>
+</section>
 <section class="panel">
   <div class="active-title">
-    <strong>آمار چله فعلی بر اساس تاریخ امروز</strong>
-    <span class="badge" id="activeBadge">تاریخ شروع را انتخاب کن</span>
+    <strong id="statsTitle">آمار چله انتخابی</strong>
+    <div class="selected-chilla-meta">
+      <span class="pending-badge" id="chillaStateBadge">—</span>
+    </div>
   </div>
   <div class="stats">
     <div class="stat small">✅ لقمه کوچک<b id="smallCount">۰</b></div>
     <div class="stat special">🟡 لقمه ویژه<b id="specialCount">۰</b></div>
     <div class="stat urgent">🔴 لقمه اضطراری<b id="urgentCount">۰</b></div>
+  </div>
+  <div class="chilla-progress" id="progressWrap">
+    <div class="progress-top"><span>پیشرفت زمانی چله</span><span id="progressText">۰ از ۴۰ روز</span></div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+  <div class="score-box" id="scoreWrap" hidden>
+    <label for="scoreInput">امتیاز چله</label>
+    <div class="score-input-wrap"><input class="score-input" id="scoreInput" type="number" inputmode="numeric" min="1" max="100" placeholder="—"><span class="score-outof">از ۱۰۰</span></div>
   </div>
 </section>
 <section class="panel">
@@ -215,25 +233,79 @@ function shortJ(p){return toFa(`${pad(p.jm)}/${pad(p.jd)}`)}
 function todayJ(){const d=new Date(); return d2j(g2d(d.getFullYear(),d.getMonth()+1,d.getDate()));}
 function todayJdn(){const d=new Date(); return g2d(d.getFullYear(),d.getMonth()+1,d.getDate());}
 function daysInJMonth(jy,jm){if(jm<=6)return 31; if(jm<=11)return 30; return jalCal(jy).leap===0?30:29;}
-function makeHabit(name="عادت جدید"){return {id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),name,start:{jy:null,jm:null,jd:null},finalGoal:"",cells:Array(TOTAL).fill(0),texts:Array.from({length:10},()=>({small:"",special:"",urgent:""})),history:[]};}
+function makeHabit(name="عادت جدید"){return {id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),name,start:{jy:null,jm:null,jd:null},finalGoal:"",cells:Array(TOTAL).fill(0),texts:Array.from({length:10},()=>({small:"",special:"",urgent:""})),scores:Array(10).fill(""),history:[]};}
 let state={habits:[makeHabit("عادت ۱")],activeId:null}; let viewChilla=0, selectedCell=null;
-function migrateHabit(h){if(!h.start){h.start={jy:null,jm:null,jd:null}; if(h.startDate){const s=String(h.startDate).replace(/[۰-۹]/g,d=>String(faDigits.indexOf(d))).replace(/[-.]/g,"/"); const m=s.match(/^(\d{3,4})\/(\d{1,2})\/(\d{1,2})$/); if(m) h.start={jy:+m[1],jm:+m[2],jd:+m[3]};}} if(!Array.isArray(h.cells)||h.cells.length!==TOTAL)h.cells=Array(TOTAL).fill(0); h.cells=h.cells.map(x=>typeof x==="object"?(Number(x.s)||0):(Number(x)||0)); if(!Array.isArray(h.texts)||h.texts.length!==10)h.texts=Array.from({length:10},()=>({small:"",special:"",urgent:""})); if(!Array.isArray(h.history))h.history=[];}
+function migrateHabit(h){if(!h.start){h.start={jy:null,jm:null,jd:null}; if(h.startDate){const s=String(h.startDate).replace(/[۰-۹]/g,d=>String(faDigits.indexOf(d))).replace(/[-.]/g,"/"); const m=s.match(/^(\d{3,4})\/(\d{1,2})\/(\d{1,2})$/); if(m) h.start={jy:+m[1],jm:+m[2],jd:+m[3]};}} if(!Array.isArray(h.cells)||h.cells.length!==TOTAL)h.cells=Array(TOTAL).fill(0); h.cells=h.cells.map(x=>typeof x==="object"?(Number(x.s)||0):(Number(x)||0)); if(!Array.isArray(h.texts)||h.texts.length!==10)h.texts=Array.from({length:10},()=>({small:"",special:"",urgent:""})); if(!Array.isArray(h.scores)||h.scores.length!==10)h.scores=Array(10).fill(""); if(!Array.isArray(h.history))h.history=[];}
 function load(){let raw=localStorage.getItem(KEY); if(!raw){for(const k of OLD_KEYS){const x=localStorage.getItem(k); if(x){raw=x; break}}} try{const x=JSON.parse(raw||"null"); if(x&&Array.isArray(x.habits)&&x.habits.length)state=x;}catch(e){} for(const h of state.habits)migrateHabit(h); if(!state.activeId||!state.habits.some(h=>h.id===state.activeId))state.activeId=state.habits[0].id;}
 function save(){localStorage.setItem(KEY,JSON.stringify(state))}
 function activeHabit(){return state.habits.find(h=>h.id===state.activeId)||state.habits[0]}
 function validStart(h){const s=h.start; if(!s||!s.jy||!s.jm||!s.jd)return null; try{if(s.jd>daysInJMonth(s.jy,s.jm))return null; return {...s,jdn:j2d(s.jy,s.jm,s.jd)};}catch(e){return null}}
 function fillDateSelectors(){startYear.innerHTML='<option value="">سال</option>'; for(let y=1390;y<=1465;y++){const o=document.createElement("option"); o.value=y; o.textContent=toFa(y); startYear.appendChild(o);} startMonth.innerHTML='<option value="">ماه</option>'; for(let m=1;m<=12;m++){const o=document.createElement("option"); o.value=m; o.textContent=toFa(m); startMonth.appendChild(o);} startDay.innerHTML='<option value="">روز</option>'; for(let d=1;d<=31;d++){const o=document.createElement("option"); o.value=d; o.textContent=toFa(d); startDay.appendChild(o);}}
 function refillDays(){const y=+startYear.value,m=+startMonth.value,old=+startDay.value||1; const max=(y&&m)?daysInJMonth(y,m):31; startDay.innerHTML='<option value="">روز</option>'; for(let d=1;d<=max;d++){const o=document.createElement("option"); o.value=d; o.textContent=toFa(d); startDay.appendChild(o);} if(old<=max)startDay.value=old;}
-function syncStartFromUI(){const h=activeHabit(); h.start={jy:startYear.value?+startYear.value:null,jm:startMonth.value?+startMonth.value:null,jd:startDay.value?+startDay.value:null}; save(); renderStats(); renderChillas(); renderGrid(); renderDetail(); renderDatePreview();}
-function renderDatePreview(){const p=validStart(activeHabit()); datePreview.textContent=p?`شروع: ${formatJ(p)}`:"شروع: —";}
-function renderTodayChip(){todayChip.textContent=`تاریخ امروز: ${formatJ(todayJ())}`;}
-function renderFields(){const h=activeHabit(); habitName.value=h.name||""; finalGoal.value=h.finalGoal||""; startYear.value=h.start?.jy||""; startMonth.value=h.start?.jm||""; refillDays(); startDay.value=h.start?.jd||""; renderDatePreview(); renderTodayChip();}
+function syncStartFromUI(){const h=activeHabit(); h.start={jy:startYear.value?+startYear.value:null,jm:startMonth.value?+startMonth.value:null,jd:startDay.value?+startDay.value:null}; if(validStart(h)) setViewToActiveChilla(); save(); renderStats(); renderChillas(); renderGrid(); renderDetail(); renderDatePreview(); renderEditor();}
+function renderDatePreview(){const p=validStart(activeHabit()); datePreview.textContent=p?formatJ(p):"—";}
+function renderFields(){const h=activeHabit(); habitName.value=h.name||""; finalGoal.value=h.finalGoal||""; startYear.value=h.start?.jy||""; startMonth.value=h.start?.jm||""; refillDays(); startDay.value=h.start?.jd||""; renderDatePreview();}
 startYear.addEventListener("change",()=>{refillDays(); syncStartFromUI()}); startMonth.addEventListener("change",()=>{refillDays(); syncStartFromUI()}); startDay.addEventListener("change",syncStartFromUI);
-function renderHabitTabs(){habitTabs.innerHTML=""; for(const h of state.habits){const b=document.createElement("button"); b.type="button"; b.className="habit-tab"+(h.id===state.activeId?" active":""); b.textContent=h.name||"بدون نام"; b.addEventListener("click",()=>{state.activeId=h.id; viewChilla=0; selectedCell=null; save(); renderAll()}); habitTabs.appendChild(b);} const add=document.createElement("button"); add.type="button"; add.className="add-habit"; add.textContent="＋ عادت جدید"; add.addEventListener("click",()=>{const n=prompt("نام عادت جدید را بنویس:","عادت "+toFa(state.habits.length+1)); if(n===null)return; const h=makeHabit(n.trim()||("عادت "+toFa(state.habits.length+1))); state.habits.push(h); state.activeId=h.id; viewChilla=0; selectedCell=null; save(); renderAll();}); habitTabs.appendChild(add);}
+function renderHabitTabs(){habitTabs.innerHTML=""; for(const h of state.habits){const b=document.createElement("button"); b.type="button"; b.className="habit-tab"+(h.id===state.activeId?" active":""); b.textContent=h.name||"بدون نام"; b.addEventListener("click",()=>{state.activeId=h.id; setViewToActiveChilla(); save(); renderAll()}); habitTabs.appendChild(b);} const add=document.createElement("button"); add.type="button"; add.className="add-habit"; add.textContent="＋ عادت جدید"; add.addEventListener("click",()=>{const n=prompt("نام عادت جدید را بنویس:","عادت "+toFa(state.habits.length+1)); if(n===null)return; const h=makeHabit(n.trim()||("عادت "+toFa(state.habits.length+1))); state.habits.push(h); state.activeId=h.id; setViewToActiveChilla(); save(); renderAll();}); habitTabs.appendChild(add);}
 function currentIndexByDate(h){const p=validStart(h); if(!p)return null; return todayJdn()-p.jdn;}
 function currentChilla(h){const idx=currentIndexByDate(h); if(idx===null)return null; if(idx<0)return 0; if(idx>=TOTAL)return 9; return Math.floor(idx/CHILLA);}
-function renderStats(){const h=activeHabit(),cc=currentChilla(h),idx=currentIndexByDate(h); if(cc===null){activeBadge.textContent="تاریخ شروع را انتخاب کن"; smallCount.textContent=specialCount.textContent=urgentCount.textContent="۰"; return;} if(idx<0){activeBadge.textContent=`چله ${toFa(1)} · روز ${toFa(1)} از ${toFa(40)} · هنوز شروع نشده`;} else if(idx>=TOTAL){activeBadge.textContent="دوره ۴۰۰ روزه تمام شده";} else {const dayOfChilla=(idx%CHILLA)+1; activeBadge.textContent=`چله ${toFa(cc+1)} · روز ${toFa(dayOfChilla)} از ${toFa(40)}`;} const st=cc*CHILLA,en=st+CHILLA; let a=0,b=0,c=0; for(let i=st;i<en;i++){if(h.cells[i]===1)a++; if(h.cells[i]===2)b++; if(h.cells[i]===3)c++;} smallCount.textContent=toFa(a); specialCount.textContent=toFa(b); urgentCount.textContent=toFa(c);}
-function renderChillas(){chillaTabs.innerHTML=""; const h=activeHabit(),cc=currentChilla(h); for(let c=0;c<10;c++){const b=document.createElement("button"); b.type="button"; b.className="chilla-btn"+(viewChilla===c?" active":"")+(cc===c?" current":""); b.textContent=`چله ${toFa(c+1)} · ${toFa(c*40+1)}–${toFa(c*40+40)}`; b.addEventListener("click",()=>{viewChilla=c; selectedCell=null; renderAll()}); chillaTabs.appendChild(b);}}
+function setViewToActiveChilla(){const c=currentChilla(activeHabit()); viewChilla=(c===null?0:c); selectedCell=null;}
+function renderStats(){
+  const h=activeHabit(), idx=currentIndexByDate(h), cc=currentChilla(h), p=validStart(h);
+  todayOverviewDate.textContent=`تاریخ امروز: ${formatJ(todayJ())}`;
+  if(!p){
+    todayOverviewCycle.textContent="چله و روز امروز: تاریخ شروع مشخص نشده";
+  }else if(idx<0){
+    todayOverviewCycle.textContent="این عادت هنوز شروع نشده";
+  }else if(idx>=TOTAL){
+    todayOverviewCycle.textContent="دوره ۴۰۰ روزه به پایان رسیده";
+  }else{
+    todayOverviewCycle.textContent=`چله ${toFa(cc+1)} — روز ${toFa((idx%CHILLA)+1)} از ${toFa(40)}`;
+  }
+
+  statsTitle.textContent=`آمار چله ${toFa(viewChilla+1)}`;
+  const st=viewChilla*CHILLA, en=st+CHILLA;
+  let a=0,b=0,c=0;
+  for(let i=st;i<en;i++){if(h.cells[i]===1)a++; if(h.cells[i]===2)b++; if(h.cells[i]===3)c++;}
+  smallCount.textContent=toFa(a); specialCount.textContent=toFa(b); urgentCount.textContent=toFa(c);
+
+  let elapsed=0, completed=false, started=false;
+  if(idx!==null){
+    started=idx>=st;
+    completed=idx>=en;
+    elapsed=Math.max(0,Math.min(CHILLA,idx-st+1));
+  }
+  if(completed){
+    chillaStateBadge.className="complete-badge";
+    chillaStateBadge.textContent="✓ تکمیل شده";
+    progressWrap.hidden=true;
+    scoreWrap.hidden=false;
+    scoreInput.value=h.scores?.[viewChilla] ?? "";
+  }else{
+    chillaStateBadge.className="pending-badge";
+    chillaStateBadge.textContent=started?"در حال انجام":"شروع نشده";
+    progressWrap.hidden=false;
+    scoreWrap.hidden=true;
+    progressText.textContent=`${toFa(elapsed)} از ${toFa(40)} روز`;
+    progressFill.style.width=`${(elapsed/CHILLA)*100}%`;
+  }
+}
+function renderChillas(){
+  chillaTabs.innerHTML="";
+  const h=activeHabit(),cc=currentChilla(h),idx=currentIndexByDate(h);
+  let activeBtn=null;
+  for(let c=0;c<10;c++){
+    const b=document.createElement("button");
+    b.type="button";
+    const completed=idx!==null && idx>=(c+1)*CHILLA;
+    b.className="chilla-btn"+(viewChilla===c?" active":"")+(cc===c?" current":"");
+    b.textContent=`${completed?"✓ ":""}چله ${toFa(c+1)} · ${toFa(c*40+1)}–${toFa(c*40+40)}`;
+    b.addEventListener("click",()=>{viewChilla=c; selectedCell=null; renderAll()});
+    chillaTabs.appendChild(b);
+    if(viewChilla===c) activeBtn=b;
+  }
+  if(activeBtn) requestAnimationFrame(()=>activeBtn.scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"}));
+}
 function dateForCell(h,i){const p=validStart(h); if(!p)return null; return d2j(p.jdn+i);}
 function renderGrid(){const h=activeHabit(); grid.innerHTML=""; const start=viewChilla*CHILLA,cls=["empty","small","special","urgent"],mark=["","✓","−","×"]; const todayIdx=currentIndexByDate(h); for(let i=start;i<start+CHILLA;i++){const st=h.cells[i]||0,dt=dateForCell(h,i); const isToday=(todayIdx!==null && todayIdx===i && i>=0 && i<TOTAL); const b=document.createElement("button"); b.type="button"; const isSelected=(selectedCell===i); b.className=`cell ${cls[st]}${isToday?" today-cell":""}${isSelected?" selected-cell":""}`; b.innerHTML=`<span class="num">${toFa(i+1)}</span><span class="mini-date">${dt?shortJ(dt):"—"}</span>${isToday?'<span class="today-pin"></span>':''}<span class="mark">${mark[st]}</span>`; b.addEventListener("click",()=>openStatusMenu(i)); grid.appendChild(b);}}
 function renderDetail(){
@@ -265,16 +337,17 @@ function renderEditor(){const h=activeHabit(),t=h.texts[viewChilla]; editorTitle
 function renderAll(){renderHabitTabs(); renderFields(); renderStats(); renderChillas(); renderGrid(); renderDetail(); renderEditor();}
 habitName.addEventListener("input",e=>{activeHabit().name=e.target.value; save(); renderHabitTabs(); renderEditor()});
 finalGoal.addEventListener("input",e=>{activeHabit().finalGoal=e.target.value; save()});
+scoreInput.addEventListener("input",e=>{let v=e.target.value; if(v!==""){v=Math.max(1,Math.min(100,Number(v)||1)); e.target.value=v;} activeHabit().scores[viewChilla]=v; save();});
 smallText.addEventListener("input",e=>{activeHabit().texts[viewChilla].small=e.target.value; save()});
 specialText.addEventListener("input",e=>{activeHabit().texts[viewChilla].special=e.target.value; save()});
 urgentText.addEventListener("input",e=>{activeHabit().texts[viewChilla].urgent=e.target.value; save()});
 undo.addEventListener("click",()=>{const h=activeHabit(),x=h.history.pop(); if(!x)return; h.cells[x.i]=x.prev; selectedCell=x.i; save(); renderStats(); renderGrid(); renderDetail();});
 resetChilla.addEventListener("click",()=>{if(!confirm("وضعیت ۴۰ روز همین چله پاک شود؟"))return; const h=activeHabit(),st=viewChilla*CHILLA; for(let i=st;i<st+CHILLA;i++)h.cells[i]=0; h.history=[]; selectedCell=null; save(); renderAll();});
-deleteHabit.addEventListener("click",()=>{if(state.habits.length===1){alert("حداقل یک عادت باید باقی بماند."); return} const h=activeHabit(); if(!confirm(`عادت «${h.name||"بدون نام"}» کامل حذف شود؟`))return; state.habits=state.habits.filter(x=>x.id!==h.id); state.activeId=state.habits[0].id; viewChilla=0; selectedCell=null; save(); renderAll();});
-duplicateHabit.addEventListener("click",()=>{const src=activeHabit(),copy=JSON.parse(JSON.stringify(src)); copy.id=Date.now().toString(36)+Math.random().toString(36).slice(2,7); copy.name=(src.name||"عادت")+" - کپی"; copy.history=[]; state.habits.push(copy); state.activeId=copy.id; viewChilla=0; selectedCell=null; save(); renderAll();});
+deleteHabit.addEventListener("click",()=>{if(state.habits.length===1){alert("حداقل یک عادت باید باقی بماند."); return} const h=activeHabit(); if(!confirm(`عادت «${h.name||"بدون نام"}» کامل حذف شود؟`))return; state.habits=state.habits.filter(x=>x.id!==h.id); state.activeId=state.habits[0].id; setViewToActiveChilla(); save(); renderAll();});
+duplicateHabit.addEventListener("click",()=>{const src=activeHabit(),copy=JSON.parse(JSON.stringify(src)); copy.id=Date.now().toString(36)+Math.random().toString(36).slice(2,7); copy.name=(src.name||"عادت")+" - کپی"; copy.history=[]; state.habits.push(copy); state.activeId=copy.id; setViewToActiveChilla(); save(); renderAll();});
 exportBtn.addEventListener("click",()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="habit-tracker-400-backup.json"; a.click(); URL.revokeObjectURL(a.href);});
-importFile.addEventListener("change",e=>{const f=e.target.files[0]; if(!f)return; const r=new FileReader(); r.onload=()=>{try{const x=JSON.parse(r.result); if(!x||!Array.isArray(x.habits)||!x.habits.length)throw 0; state=x; for(const h of state.habits)migrateHabit(h); if(!state.activeId||!state.habits.some(h=>h.id===state.activeId))state.activeId=state.habits[0].id; save(); viewChilla=0; selectedCell=null; renderAll(); alert("پشتیبان بازیابی شد.");}catch(err){alert("فایل پشتیبان معتبر نیست.")}}; r.readAsText(f); e.target.value="";});
-fillDateSelectors(); load(); renderAll();
+importFile.addEventListener("change",e=>{const f=e.target.files[0]; if(!f)return; const r=new FileReader(); r.onload=()=>{try{const x=JSON.parse(r.result); if(!x||!Array.isArray(x.habits)||!x.habits.length)throw 0; state=x; for(const h of state.habits)migrateHabit(h); if(!state.activeId||!state.habits.some(h=>h.id===state.activeId))state.activeId=state.habits[0].id; setViewToActiveChilla(); save(); renderAll(); alert("پشتیبان بازیابی شد.");}catch(err){alert("فایل پشتیبان معتبر نیست.")}}; r.readAsText(f); e.target.value="";});
+fillDateSelectors(); load(); setViewToActiveChilla(); renderAll();
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
   window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js').catch(() => {}); });
 }
